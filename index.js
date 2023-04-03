@@ -94,7 +94,7 @@ const renderTeam = (pokemons) => {
               pokemonTeamImg.addEventListener('click', () => {
             pokemonId = pokemonTeamImg.alt;
             pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
-            pokemon
+
         })
     })
 };
@@ -114,8 +114,7 @@ const pokemonImages = (pokemon) => {
     let pokemonMainImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`
     
 };
-let listOfNames = document.createElement("datalist")
-listOfNames.setAttribute("id","datalistOfNames")
+let listOfNames = document.getElementById("mylist")
 const renderList = (pokemon) => {
     console.log(pokemon.length)
     for (var i = 0; i < pokemon.length ; ++i){
@@ -125,9 +124,7 @@ const renderList = (pokemon) => {
     }
     console.log(listOfNames)
 const newCharacterForm = document.getElementById("new-character")
-charInput=document.createElement("input")
-charInput.setAttribute("type","search")
-charInput.setAttribute("list","datalistOfNames")
+charInput=document.getElementById("searchChar")
 newCharacterForm.append(charInput)
 };
 
