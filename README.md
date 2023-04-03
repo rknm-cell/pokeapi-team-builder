@@ -2,7 +2,7 @@
 Build out a pokemon team using pokeAPI
 Project deliverables:
 
-The list on the would click and show the Pokemon in detail with stats and there would be a delete option
+The list on the left would click and show the Pokemon in detail with stats and there would be a delete option
 
 There would be a submit form to add a new Pokemon to the team and it would choose the name in the input. 
 
@@ -16,7 +16,7 @@ The event listeners would be:
 -Click
 	Click from the menu to select a Pokemon
 	A button to change their levels
-	A button to set free Pokemon and create an empty
+	A button to set free Pokemon and create an empty space on the team list
 -Hover
 	Hover over individual Pokemon and the bar would animate.		
 -Submit
