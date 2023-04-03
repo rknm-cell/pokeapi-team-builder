@@ -1,17 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+    </style>
+    <datalist id="mylist">
+        <option value="Pokemon">
+        <option value="Pikachu">
+        <option value="Charzard">
+          <option value="hello"></option>
+     </datalist>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <title>Pokémon Team Builder</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script defer type="text/javascript" src="./index.js"></script>
 </head>
+
 <body>
-    <div>
-        <span>
-            
-        </span>
+  <header>
+    <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+        alt="Pokeapi header"/>
+    <span class="hello" style = "position:relative; top:-30px;"> Team Builder</h1>
+  </header>
+
+    <div class="team-div">
+        <div class="rosterOval"><h2>Roster</h2></div>
+        <!-- <div class="players" id="player1"><h3>Player 1</h3></div>
+        <div class="players" id="player2"><h3>Player 2</h3></div>
+        <div class="players" id="player3"><h3>Player 3</h3></div>
+        <div class="players" id="player4"><h3>Player 4</h3></div>
+        <div class="players" id="player5"><h3>Player 5</h3></div>
+        <div class="players" id="player6"><h3>Player 6</h3></div> -->
     </div>
+
+  <!-- Character Stats -->
+  <span id="nameAndNumber">
+    <h2 id="number">99</h2>
+    <h1 id="name">Name</h1>
+  </span>
+  <div id="types">
+        <h4 id="type1">type1</h4>
+        <h4 id="type2">type2</h4>
+        <h4 id="type3">type3</h4>
+  </div>
+  <img class="detail-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png" alt="Insert Character image" />
+
+  
+  <!-- <button id="delete">X</button> -->
+  <!-- New Character Form -->
+  <form id="new-character">
+    <h4>Add New Character</h4>
+    <label for="name">Name: </label>
+    <!-- <input type="search" list="mylist"/> -->
+    <input type="submit" value="Create" />
+  </form>
+
 </body>
+
 </html>

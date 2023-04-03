@@ -1,0 +1,12 @@
+{
+"pokemon": [
+    {
+        "id": 1,
+        "name": "bulbasaur",
+        "main": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+        "type": "plant"
+    }
+    
+]
+}
