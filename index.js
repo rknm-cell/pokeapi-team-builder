@@ -20,13 +20,13 @@
 // // if you click an empty spot in the team list you can add a new pokemon
 
 // url variable 
-const url = "https://pokeapi.co/api/v2/pokemon?limit=25";
+const url = "https://pokeapi.co/api/v2/pokemon?limit=6";
 
 // team variables
-const teamDiv = document.getElementById('pokemon-team');
+const teamDiv = document.querySelector('.team-div');
 // pokemon detail variables
 // const pokemonDetail = document.getElementById('pokemon-detail');
-const pokemonDetailImage = document.querySelector('.detail-image');
+const pokemonDetailImage = document.querySelector('.image');
 const pokemonName = document.querySelector('.name');
 const pokemonspecies = document.getElementById('species-display');
 const pokemonComment = document.getElementById('comment-display');
@@ -39,48 +39,100 @@ const newspecies = document.getElementById('new-species');
 const newComment = document.getElementById('new-comment')
 
 // fetch request
+// const url = "https://pokeapi.co/api/v2/pokemon?limit=6";
+
 fetch(url)
 .then((response) => response.json())
 .then((data) => {
     console.log(data.results);
     renderTeam(data.results);
+    renderList(data.results)
     // defaultPokemon(data.results[0]);
     // mainPokemon(data.results[0]);
 });
-// fetch for every pokeman 
 
-// const pokemonDetail = (data) => {
-//     pokemonId = pokemonTeamImg.alt
-//     pokemonTeamImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
-//     pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-//     pokemonName.textContent = data.name;
-//     pokemonComment.textContent = data.comment;
-// };
 
 const renderTeam = (pokemons) => {
     pokemons.forEach(pokemon => {
         // console.log(index);
-        console.log(pokemons.indexOf(pokemon))
+        // console.log(pokemons.indexOf(pokemon))
         let pokemonId = (pokemons.indexOf(pokemon) + 1);  
         let pokemonTeamImg = document.createElement('img');
         pokemonTeamImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
         pokemonTeamImg.alt = pokemonId;
-        teamDiv.append(pokemonTeamImg);
+        //create div for each team member
+        let teamMember = document.createElement('div')
+        teamMember.setAttribute("class","players");
+        let playerInfo= document.createElement("span")
+        playerInfo.setAttribute("class","player-info")
+        teamMember.append(playerInfo)
+        let nameAndLevel=document.createElement("span")
+        nameAndLevel.setAttribute("class","name-and-level")
+        playerInfo.append(nameAndLevel)
+        //add img and delete button to each team member div
+        playerInfo.append(pokemonTeamImg);
         
-        pokemonTeamImg.addEventListener('click', () => {
+        
+        let displayName = document.createElement("h3")
+        displayName.textContent=pokemon.name
+        nameAndLevel.append(displayName)
+        
+        let displayLevel = document.createElement("h3")
+        displayLevel.textContent="50"
+        nameAndLevel.append(displayLevel)
+        
+        let deleteButton=document.createElement("button")
+        deleteButton.setAttribute("class","delete")
+        deleteButton.textContent="x"
+        playerInfo.append(deleteButton);
+
+        teamMember.setAttribute("name",pokemon.name)
+        
+        // console.log(pokemon.name)
+        //add each teamMember to team div
+        teamDiv.append(teamMember)
+              pokemonTeamImg.addEventListener('click', () => {
             pokemonId = pokemonTeamImg.alt;
             pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
             pokemon
         })
     })
-}
+};
+// fetch for every pokeman 
 
-// const pokemonImages = (pokemon) => {
-//     // let pokemonId = pokemon index value + 1
-    // let pokemonThumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
-    // let pokemonMainImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`
+const pokemonDetail = (data) => {
+    pokemonId = pokemonTeamImg.alt
+    pokemonTeamImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
+    pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+    pokemonName.textContent = data.name;
+    pokemonComment.textContent = data.comment;
+};
+
+const pokemonImages = (pokemon) => {
+    // let pokemonId = pokemon index value + 1
+    let pokemonThumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
+    let pokemonMainImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`
     
-// };
+};
+let listOfNames = document.createElement("datalist")
+listOfNames.setAttribute("id","datalistOfNames")
+const renderList = (pokemon) => {
+    console.log(pokemon.length)
+    for (var i = 0; i < pokemon.length ; ++i){
+   let nameOption= document.createElement("option")
+   nameOption.value=pokemon[i].name
+   listOfNames.append(nameOption)
+    }
+    console.log(listOfNames)
+const newCharacterForm = document.getElementById("new-character")
+charInput=document.createElement("input")
+charInput.setAttribute("type","search")
+charInput.setAttribute("list","datalistOfNames")
+newCharacterForm.append(charInput)
+};
+
+
+
 
 
 

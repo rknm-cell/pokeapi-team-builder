@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html>
-
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+    </style>
+    <datalist id="mylist">
+        <option value="Pokemon">
+        <option value="Pikachu">
+        <option value="Charzard">
+          <option value="hello"></option>
+     </datalist>
 <head>
   <meta charset="utf-8" />
-  <title>pokemon Rater</title>
+  <title>Pokémon Team Builder</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <script defer type="text/javascript" src="./index.js"></script>
 </head>
 
 <body>
   <header>
-    <h3>pokemon Rater</h3>
+    <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
+        alt="Pokeapi header"/>
+    <span class="hello" style = "position:relative; top:-30px;"> Team Builder</h1>
   </header>
 
-  <!-- pokemon team -->
-  <div id="pokemon-team">
-    <!-- pokemon Images Here -->
+    <div class="team-div">
+        <div class="rosterOval"><h2>Roster</h2></div>
+        <!-- <div class="players" id="player1"><h3>Player 1</h3></div>
+        <div class="players" id="player2"><h3>Player 2</h3></div>
+        <div class="players" id="player3"><h3>Player 3</h3></div>
+        <div class="players" id="player4"><h3>Player 4</h3></div>
+        <div class="players" id="player5"><h3>Player 5</h3></div>
+        <div class="players" id="player6"><h3>Player 6</h3></div> -->
+    </div>
+
+  <!-- Character Stats -->
+  <span id="nameAndNumber">
+    <h2 id="number">99</h2>
+    <h1 id="name">Name</h1>
+  </span>
+  <div id="types">
+        <h4 id="type1">type1</h4>
+        <h4 id="type2">type2</h4>
+        <h4 id="type3">type3</h4>
   </div>
+  <img class="detail-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png" alt="Insert Character image" />
 
-  <!-- pokemon Details -->
-  <div id="pokemon-detail">
-    <img class="detail-image" src="./assets/image-placeholder.jpg" alt="Insert Name Here" />
-    <h2 class="name">Insert Name Here</h2>
-    <h3 class="restaurant">Insert Restaurant Here</h3>
-  </div>
-
-  <h3>Rating:</h3>
-  <p>
-    <span id='rating-display'>Insert rating here</span> / 10
-  </p>
-  <h3>Comment:</h3>
-  <p id='comment-display'>
-    Insert comment here
-  </p>
-
-  <!-- New pokemon Form -->
-  <form id="new-pokemon">
-    <h4>Add New pokemon</h4>
+  
+  <!-- <button id="delete">X</button> -->
+  <!-- New Character Form -->
+  <form id="new-character">
+    <h4>Add New Character</h4>
     <label for="name">Name: </label>
-    <input type="text" name="name" id="new-name" />
-    <label for="restaurant">Restaurant: </label>
-    <input type="text" name="restaurant" id="new-restaurant" />
-    <label for="image">Image: </label>
-    <input type="text" name="image" id="new-image" />
-    <label for="rating">Rating: </label>
-    <input type="number" name="rating" id="new-rating" />
-    <label for="new-comment">Comment: </label>
-    <textarea name="new-comment" id="new-comment"></textarea>
+    <!-- <input type="search" list="mylist"/> -->
     <input type="submit" value="Create" />
   </form>
 

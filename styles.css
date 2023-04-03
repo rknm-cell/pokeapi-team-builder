@@ -1,53 +1,111 @@
 * {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Pokemon Solid', sans-serif;                                       
     box-sizing: border-box;
   }
   
   body {
+    min-height: 100vh;
     padding: 1rem;
     text-align: center;
-    background-color: #712c2c;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background-image: linear-gradient(100deg, #b4ea33,whitesmoke, whitesmoke,#a476e8);
+    background-size:cover;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction:column;
     align-items: center;
+   
   }
   
   header {
-    padding: 0.5rem;
+    position: absolute;
+    margin-top: 5vh;
+    text-align: center;
+    color: #3c5aa6;
     width: 100%;
-    color: white;
-    background-color: black;
+    margin: auto;
+    font-size: 30pt;
+
   }
+  .team-div{
+    position: absolute;
+    left: 40px;
+    top: 10vh;
+  }
+  .rosterOval{
+    text-align: center;
+    margin-bottom: 10px;
+    left: 20px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+  }
+  .rosterOval h2{
+    padding:10px;
+  }
+ .player-info span{
+  display: flex;
+  flex-direction: row;
+    text-align: center;
+    margin-top: 5px;
+    left: 20px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+
+ }
+ .name-and-level{
+  display: flex;
+  flex-direction: column;
+ }
+.players img{
   
-  #pokemon-team {
+    padding: 10px;
+    max-height: 85px;
+}
+/* .players h3 {
+  
+} */ */
+/* #player1{
     display: flex;
-    overflow-x: auto;
-    margin: 1rem 0;
-    max-width: calc(100vw - 2rem);
-  }
-  
-  #pokemon-team img {
-    flex: 0 1 auto;
-    height: 150px;
-    margin-right: 0.5rem;
-    cursor: pointer;
-  }
-  
-  #pokemon-team img:last-child {
-    margin-right: 0;
-  }
-  
-  #pokemon-detail {
+    flex-direction: column;
+    position: absolute;
+    text-align: center;
+    margin-top: 30vh;
+    left: 20px;
+    background-color: whitesmoke;
+    background-repeat: repeat;
+    padding-inline: 20px;
+    clip-path: circle(50%);
+} */
+#nameAndNumber {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 140px;
+}
+#name {
+    margin-left: 10px;
+}
+#types{
     position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    top: 180px;
+}
+#type1,#type2,#type3 {
+    margin-left: 10px;
   }
+.detail-image{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-height: 500px;
+    margin-right: 50px;
+    
+    margin-bottom: 50px;
+ 
+}
   
-  .detail-image {
-    height: 350px;
-  }
-  
-  .name,
   .restaurant {
     position: absolute;
     left: 10px;
@@ -55,19 +113,14 @@
     background-color: rgba(255, 255, 255, 0.8);
   }
   
-  .name {
-    bottom: 60px;
-  }
-  
-  .restaurant {
-    bottom: 20px;
-  }
-  
+
   form {
     margin: 1rem 0;
-    width: 300px;
-    display: flex;
+    width: 200px;
+    display: inline-block;
     flex-direction: column;
+    position: absolute;
+    bottom: 0;
     align-items: flex-start;
   }
   
@@ -89,15 +142,20 @@
     transition: all 0.3s;
   }
   
-  input[type="submit"]:active {
-    background-color: gray;
-  }
+  
   
   form h4 {
     width: 100%;
+
     padding: 0.25rem;
     margin: 0.5rem 0;
     color: white;
     background-color: black;
   }
   
+  #delete{
+    display:block;
+    position: absolute;
+    left: 50px;
+    bottom: 200px
+  }
