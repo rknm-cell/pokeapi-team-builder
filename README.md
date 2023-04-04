@@ -33,4 +33,4 @@ Submit
 
 Steps:
 	Lay out the HTML elements
- The landing page image would be a randomized Pokemon in the main page
+The landing page image would be a randomized Pokemon in the main page

@@ -1,69 +1,71 @@
 * {
-    margin: 0;
-    font-family: 'Pokemon Solid', sans-serif;                                       
-    box-sizing: border-box;
-  }
-  
-  body {
-    min-height: 100vh;
-    padding: 1rem;
-    text-align: center;
-    background-image: linear-gradient(100deg, #b4ea33,whitesmoke, whitesmoke,#a476e8);
-    background-size:cover;
-    background-repeat: no-repeat;
-    display:flex;
-    flex-direction:column;
-    align-items: center;
-   
-  }
-  
-  header {
-    position: absolute;
-    margin-top: 5vh;
-    text-align: center;
-    color: #3c5aa6;
-    width: 100%;
-    margin: auto;
-    font-size: 30pt;
+  margin: 0;
+  font-family: "Pokemon Solid", sans-serif;
+  box-sizing: border-box;
+}
 
-  }
-  .team-div{
-    position: absolute;
-    left: 40px;
-    top: 10vh;
-  }
-  .rosterOval{
-    text-align: center;
-    margin-bottom: 10px;
-    left: 20px;
-    background-color: whitesmoke;
-    border-radius: 15px;
-  }
-  .rosterOval h2{
-    padding:10px;
-  }
- .player-info span{
-  display: flex;
-  flex-direction: row;
-    text-align: center;
-    margin-top: 5px;
-    left: 20px;
-    background-color: whitesmoke;
-    border-radius: 15px;
-
- }
- .name-and-level{
+body {
+  min-height: 100vh;
+  padding: 1rem;
+  text-align: center;
+  background-image: linear-gradient(
+    110deg,
+    #b4ea33,
+    whitesmoke,
+    whitesmoke,
+    #a476e8
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
- }
-.players img{
-  
-    padding: 10px;
-    max-height: 85px;
+  align-items: center;
+}
+
+header {
+  position: fixed;
+  text-align: center;
+  color: #3c5aa6;
+  width: 100%;
+  margin: auto;
+  font-size: 30pt;
+}
+.team-div {
+  position: absolute;
+  left: 40px;
+  top: 10vh;
+}
+.rosterOval {
+  text-align: center;
+  margin-bottom: 10px;
+  left: 20px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+.rosterOval h2 {
+  padding: 10px;
+}
+.player-info span {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-top: 5px;
+  left: 20px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+.name-and-level {
+  display: flex;
+  flex-direction: column;
+}
+.players img {
+  padding: 10px;
+  max-height: 85px;
 }
 /* .players h3 {
   
-} */ */
+} */
+*/
 /* #player1{
     display: flex;
     flex-direction: column;
@@ -76,86 +78,97 @@
     padding-inline: 20px;
     clip-path: circle(50%);
 } */
+#character-stats {
+  display: inline-block;
+  position: relative;
+}
 #nameAndNumber {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    top: 140px;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 120px;
 }
-#name {
-    margin-left: 10px;
+#name,
+#number {
+  flex-direction: row;
+  margin-left: 10px;
 }
-#types{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    top: 180px;
-}
-#type1,#type2,#type3 {
-    margin-left: 10px;
-  }
-.detail-image{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    max-height: 500px;
-    margin-right: 50px;
-    
-    margin-bottom: 50px;
- 
-}
+/* #number {
+  display: flex;
+  margin-left: 10px;
+} */
+#types {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
   
-  .restaurant {
-    position: absolute;
-    left: 10px;
-    padding: 0.25rem 5rem 0.25rem 1rem;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
+}
+#type1,
+#type2,
+#type3 {
+  margin-left: 10px;
+}
+.detail-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-height: 500px;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
 
-  form {
-    margin: 1rem 0;
-    width: 200px;
-    display: inline-block;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    align-items: flex-start;
-  }
-  
-  input,
-  textarea {
-    font-size: 1rem;
-    border: 1px solid black;
-    background-color: white;
-    padding: 0.5rem;
-    margin: 0.25rem 0;
-    width: 100%;
-  }
-  
-  input[type="submit"] {
-    color: white;
-    border: 1px solid white;
-    background-color: black;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  
-  
-  form h4 {
-    width: 100%;
+.restaurant {
+  position: absolute;
+  left: 10px;
+  padding: 0.25rem 5rem 0.25rem 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
 
-    padding: 0.25rem;
-    margin: 0.5rem 0;
-    color: white;
-    background-color: black;
-  }
-  
-  #delete{
-    display:block;
-    position: absolute;
-    left: 50px;
-    bottom: 200px
-  }
+form {
+  margin: 1rem 0;
+  width: 200px;
+  /* display: inline-block; */
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  align-items: flex-start;
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  border: 1px solid black;
+  background-color: white;
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  width: 100%;
+}
+
+input[type="submit"] {
+  color: white;
+  border: 1px solid white;
+  background-color: black;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+form h4 {
+  width: 100%;
+
+  padding: 0.25rem;
+  margin: 0.5rem 0;
+  color: white;
+  background-color: black;
+}
+
+#delete {
+  display: block;
+  position: absolute;
+  left: 50px;
+  bottom: 200px;
+}
+#new-character-details{
+  position: absolute;
+  bottom: 59px;
+}

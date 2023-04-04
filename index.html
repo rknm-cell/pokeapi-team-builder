@@ -17,43 +17,47 @@
 </head>
 
 <body>
-  <header>
+  <header id="pokeapi-header">
     <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
         alt="Pokeapi header"/>
     <span class="hello" style = "position:relative; top:-30px;"> Team Builder</h1>
   </header>
 
     <div class="team-div">
-        <div class="rosterOval"><h2>Roster</h2></div>
-        <!-- <div class="players" id="player1"><h3>Player 1</h3></div>
-        <div class="players" id="player2"><h3>Player 2</h3></div>
-        <div class="players" id="player3"><h3>Player 3</h3></div>
-        <div class="players" id="player4"><h3>Player 4</h3></div>
-        <div class="players" id="player5"><h3>Player 5</h3></div>
-        <div class="players" id="player6"><h3>Player 6</h3></div> -->
+        <div class="rosterOval">
+          </div>
     </div>
 
   <!-- Character Stats -->
-  <span id="nameAndNumber">
-    <h2 id="number">99</h2>
-    <h1 id="name">Name</h1>
-  </span>
-  <div id="types">
-        <h4 id="type1">type1</h4>
-        <h4 id="type2">type2</h4>
-        <h4 id="type3">type3</h4>
+  <section id="character-stats">
+    
+    <span id="nameAndNumber">
+      
+      <h1 id="detail-name">Name</h1>
+      <h2 id="detail-level">lvl 99</h2>
+      <div id="types">
+        <h4 id="type1"></h4>
+        <h4 id="type2"></h4>
+        <h4 id="type3"></h4>
+        
   </div>
-  <img class="detail-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png" alt="Insert Character image" />
+    </span>
+    <img class="detail-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/6.png" alt="Insert Character image" />
 
+  </section>
+  
+  
   
   <!-- <button id="delete">X</button> -->
   <!-- New Character Form -->
-  <form id="new-character">
+  <details id="new-character-details"><summary>New Character</summary>
+    <form id="new-character">
     <h4>Add New Character</h4>
     <label for="name">Name: </label>
     <input id="searchChar" type="search" list="mylist"/>
     <input type="submit" value="Create" />
   </form>
+</details>
 
 </body>
 
