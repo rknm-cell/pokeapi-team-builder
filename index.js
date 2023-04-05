@@ -26,7 +26,7 @@ const url = "https://pokeapi.co/api/v2/pokemon?limit=6";
 const teamDiv = document.querySelector('.team-div');
 // pokemon detail variables
 // const pokemonDetail = document.getElementById('pokemon-detail');
-const pokemonDetailImage = document.querySelector('.image');
+const pokemonDetailImage = document.querySelector('.detail-image');
 const pokemonName = document.querySelector('.name');
 const pokemonspecies = document.getElementById('species-display');
 const pokemonComment = document.getElementById('comment-display');
@@ -37,6 +37,8 @@ const newRestaurant = document.getElementById('new-restaurant');
 const newImage = document.getElementById('new-image');
 const newspecies = document.getElementById('new-species');
 const newComment = document.getElementById('new-comment')
+const input=document.querySelector(".char-input")
+let results =[]
 
 // fetch request
 // const url = "https://pokeapi.co/api/v2/pokemon?limit=6";
@@ -44,9 +46,9 @@ const newComment = document.getElementById('new-comment')
 fetch(url)
 .then((response) => response.json())
 .then((data) => {
-    console.log(data.results);
     renderTeam(data.results);
-    renderList(data.results)
+    renderList(data.results);
+    results=data.results;
     // defaultPokemon(data.results[0]);
     // mainPokemon(data.results[0]);
 });
@@ -57,47 +59,76 @@ const renderTeam = (pokemons) => {
         // console.log(index);
         // console.log(pokemons.indexOf(pokemon))
         let pokemonId = (pokemons.indexOf(pokemon) + 1);  
+       
         let pokemonTeamImg = document.createElement('img');
         pokemonTeamImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
         pokemonTeamImg.alt = pokemonId;
-        //create div for each team member
-        let teamMember = document.createElement('div')
-        teamMember.setAttribute("class","players");
-        let playerInfo= document.createElement("span")
-        playerInfo.setAttribute("class","player-info")
-        teamMember.append(playerInfo)
+    
         let nameAndLevel=document.createElement("span")
         nameAndLevel.setAttribute("class","name-and-level")
-        playerInfo.append(nameAndLevel)
-        //add img and delete button to each team member div
-        playerInfo.append(pokemonTeamImg);
         
-        
-        let displayName = document.createElement("h3")
+        let displayName = document.createElement("h2")
         displayName.textContent=pokemon.name
         nameAndLevel.append(displayName)
         
         let displayLevel = document.createElement("h3")
         displayLevel.textContent="50"
         nameAndLevel.append(displayLevel)
+
+        let playerInfo= document.createElement("span")
+        playerInfo.setAttribute("class","player-info")
+        playerInfo.append(pokemonTeamImg);
         
         let deleteButton=document.createElement("button")
         deleteButton.setAttribute("class","delete")
         deleteButton.textContent="x"
         playerInfo.append(deleteButton);
+        deleteButton.addEventListener("click",deleteIt)
+        function deleteIt(){teamMember.remove()}
+       
+        playerInfo.append(nameAndLevel)
+        
+    
+       
+        let teamMember = document.createElement('div')
+        teamMember.setAttribute("class","players")
+        teamMember.append(playerInfo)
+    
+
+       
+        //teamMember.append(nameAndLevel);
+        //teamMember.append(pokemonTeamImg);
+        teamMember.setAttribute("id",pokemonId)
+        
+    
+        
+
 
         teamMember.setAttribute("name",pokemon.name)
         
         // console.log(pokemon.name)
         //add each teamMember to team div
         teamDiv.append(teamMember)
-              pokemonTeamImg.addEventListener('click', () => {
+
+            pokemonTeamImg.addEventListener('click', () => {
             pokemonId = pokemonTeamImg.alt;
             pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
             pokemon
+
+            
         })
     })
+
 };
+
+// let displayedPokemons=document.querySelectorAll(".players")
+// for (i of displayedPokemons){
+// displayedPokemons[i].style.display=i.innerHTML
+// }
+// console.log(displayedPokemons)
+
+
+
 // fetch for every pokeman 
 
 const pokemonDetail = (data) => {
@@ -114,99 +145,43 @@ const pokemonImages = (pokemon) => {
     let pokemonMainImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`
     
 };
-let listOfNames = document.createElement("datalist")
-listOfNames.setAttribute("id","datalistOfNames")
+let listOfNames = document.getElementById("mylist")
 const renderList = (pokemon) => {
-    console.log(pokemon.length)
     for (var i = 0; i < pokemon.length ; ++i){
    let nameOption= document.createElement("option")
    nameOption.value=pokemon[i].name
    listOfNames.append(nameOption)
     }
     console.log(listOfNames)
-const newCharacterForm = document.getElementById("new-character")
-charInput=document.createElement("input")
-charInput.setAttribute("type","search")
-charInput.setAttribute("list","datalistOfNames")
-newCharacterForm.append(charInput)
 };
 
-
-
-
-
-
-// const defaultPokemon = (pokemon) => {
-//     console.log(pokemon.indexof(pokemons.name))
+// }
+// function addit(){
+// while (teamDiv.length){
     
-//     pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
-//     pokemonName.textContent = data.name;
-//     pokemonspecies.textContent = data.name;
-//     return defaultPokemon;
-// };
-// const pokemonDefault = (pokemon) => {
-//     let pokemonUrl = pokemon.url;
-// fetch(pokemonUrl)
-//             .then((response) => response.json())
-//             .then((data) => {
-//             console.log(data);
-//             pokemonDetailImage.src = data.sprites.other.home.front_default
-//             console.log(data.sprites.other.home.front_default);
-//             });
 // }
-//         let renderBulbasaur = (pokemon) => {
-//             pokemonDetailImage.src = pokemon.spites.home.front_default;
-//         }
-// // iterates API data
-// const renderTeam = (pokemons) => {
-//     pokemons.forEach((pokemon) => {
-//         // created images for team div
-        
-//         console.log(pokemon);
-//         console.log(pokemon.name);
-//         console.log(pokemon.url);
-//         let pokemonUrl = pokemon.url;
-        
-        // const pokemonteamImg = document.createElement('img');
-        // pokemonteamImg.src = pokemon.sprites.other.home.front_default;
-        // teamDiv.append(pokemonteamImg);
-        // added eventlistener to images of pokemon
-        // pokemonteamImg.addEventListener('click', () => {
-        //     pokemonDefault(pokemon);
-        // });
-//     });
-// };
-// newpokemonForm.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     console.log('form submitted');
-
-//     const newpokemonObj = {
-//         name: newName.value,
-//         restaurant: newRestaurant.value,
-//         image: newImage.value,
-//         comment: newComment.value,
-//         species: newspecies.value
-//     };
-//     fetch(URL, {
-//         method: 'POST',
-//         headers: {
-//             'Content-type': 'application/json'
-//         },
-//         body: JSON.stringify(newpokemonObj)
-//     }).then(response => response.json())
-//       .then(showNewpokemon)
-//     });
-
-
-// function showNewpokemon(pokemon){
-//     const pokemonImg = document.createElement('img');
-//     pokemonImg.src = pokemon.image;
-//     pokemonImg.alt = pokemon.name;
-//     pokemonImg.dataset.id = pokemon.id
-
-//     // pokemonImg.addEventListener('click', (e) => {
-//     //     showpokemonDetails(pokemon)
-//     // })
-
-//     teamDiv.append(pokemonImg);
 // }
+
+console.log(teamDiv.childElementCount)
+
+newpokemonForm.addEventListener("submit",(event)=>{
+    event.preventDefault()
+    newPoke={}
+    newPoke.name=event.target[0].value
+    console.log(results.indexOf(newPoke))
+    console.log(newPoke)
+    
+    // newPoke.id=fetch(url)
+    //             .then((response) => response.json())
+    //             .then((data) => {
+    //                 for (let pokemon of data.results){
+    //                     if(event.target[0].value==pokemon.name){
+    //                        return pokemon.url
+    //                     }
+    //                     }
+                
+    //             });
+    results=[newPoke,...results]
+    console.log(results)
+     renderTeam([newPoke])            
+})

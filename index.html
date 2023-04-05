@@ -4,11 +4,7 @@
         @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
     </style>
     <datalist id="mylist">
-        <option value="Pokemon">
-        <option value="Pikachu">
-        <option value="Charzard">
-          <option value="hello"></option>
-     </datalist>
+    </datalist>
 <head>
   <meta charset="utf-8" />
   <title>Pokémon Team Builder</title>
@@ -22,15 +18,12 @@
         alt="Pokeapi header"/>
     <span class="hello" style = "position:relative; top:-30px;"> Team Builder</h1>
   </header>
-
-    <div class="team-div">
-        <div class="rosterOval"><h2>Roster</h2></div>
-        <!-- <div class="players" id="player1"><h3>Player 1</h3></div>
-        <div class="players" id="player2"><h3>Player 2</h3></div>
-        <div class="players" id="player3"><h3>Player 3</h3></div>
-        <div class="players" id="player4"><h3>Player 4</h3></div>
-        <div class="players" id="player5"><h3>Player 5</h3></div>
-        <div class="players" id="player6"><h3>Player 6</h3></div> -->
+  
+  <div class="rosterLabel"><h2>Roster</h2></div>
+    
+  <div class="team-div">
+        
+        <!-- <div class="players" id="player1"><h3>Player 1</h3></div>-->
     </div>
 
   <!-- Character Stats -->
@@ -48,11 +41,11 @@
   
   <!-- <button id="delete">X</button> -->
   <!-- New Character Form -->
-  <form id="new-character">
+  <form id="new-pokemon">
     <h4>Add New Character</h4>
     <label for="name">Name: </label>
-    <!-- <input type="search" list="mylist"/> -->
-    <input type="submit" value="Create" />
+    <input class="char-input" type="search" list="mylist"/>
+    <button type="submit">Create </button>
   </form>
 
 </body>
