@@ -20,8 +20,8 @@
 // // if you click an empty spot in the team list you can add a new pokemon
 
 // url variable
-const url = "https://pokeapi.co/api/v2/pokemon?limit=6";
-const pokemonTypeUrl = `https://pokeapi.co/api/v2/type/45/`;
+const url = "http://localhost:3000/pokemon?limit=6";
+// const pokemonTypeUrl = `https://pokeapi.co/api/v2/type/45/`;
 
 // team variables
 const teamDiv = document.querySelector(".team-div");
@@ -39,6 +39,7 @@ const newRestaurant = document.getElementById("new-restaurant");
 const newImage = document.getElementById("new-image");
 const newSpecies = document.getElementById("new-species");
 const newComment = document.getElementById("new-comment");
+let charactersArray
 
 // fetch request
 // const url = "https://pokeapi.co/api/v2/pokemon?limit=6";
@@ -47,24 +48,28 @@ const newComment = document.getElementById("new-comment");
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data.results);
-    renderTeam(data.results);
-    // pokemonDetail(data.results[4])
-    // renderList(data.results)
+    console.log(data);
+    let newArray = data.splice(0, 6); 
+    charactersArray = data
+    renderTeam(newArray);
+    // pokemonDetail(data[randomNumber]);
+    renderList(data)
     // defaultPokemon(data.results[0]);
     // mainPokemon(data.results[0]);
   });
+const pokemoneTeamMember = () => {
 
+}
 const renderTeam = (pokemons) => {
   pokemons.forEach((pokemon) => {
     // console.log(index);
     // console.log(pokemons.indexOf(pokemon))
     
-    let pokemonId = pokemons.indexOf(pokemon) + 1;
+    
     let pokemonLevel = "";
     let pokemonTeamImg = document.createElement("img");
-    pokemonTeamImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-    pokemonTeamImg.alt = pokemonId;
+    pokemonTeamImg.src = pokemon.sprite;
+    pokemonTeamImg.alt = pokemon.id;
     // create div for each team member
     let teamMember = document.createElement("div");
     teamMember.setAttribute("class", "players");
@@ -82,14 +87,17 @@ const renderTeam = (pokemons) => {
     displayName.textContent = pokemon.name;
     nameAndLevel.append(displayName);
     // level settings
-    let displayLevel = document.createElement("h2");
+    let displayLevel = document.createElement("h3");
     displayLevel.textContent = ` lvl: ${pokemonLevel}`;
     nameAndLevel.append(displayLevel);
 
-    let deleteButton = document.createElement("button");
-    deleteButton.setAttribute("class", "delete");
-    deleteButton.textContent = "x";
+    
+    let deleteButton=document.createElement("button")
+    deleteButton.setAttribute("class","delete")
+    deleteButton.textContent="x"
     playerInfo.append(deleteButton);
+    deleteButton.addEventListener("click",deleteIt)
+    function deleteIt(){teamMember.remove()}
 
     teamMember.setAttribute("name", pokemon.name);
 
@@ -103,29 +111,79 @@ const renderTeam = (pokemons) => {
       teamMember.style.transform = 'scale(1)';
     })
     teamMember.addEventListener("click", () => {
-      pokemonId = pokemonTeamImg.alt;
-      pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
+      
+      pokemonDetailImage.src = pokemon.img;
       console.log(pokemon.name);
       pokemonDetailName.textContent = pokemon.name;
-      pokemonDetailLevel.textContent = `lvl ${pokemonLevel}`;
+      pokemonDetailLevel.textContent = ` lvl ${pokemonLevel}`;
     });
   });
 };
 
+let listOfNames = document.getElementById("mylist")
+const renderList = (pokemon) => {
+    for (var i = 0; i < pokemon.length ; ++i){
+   let nameOption= document.createElement("option")
+   nameOption.value=pokemon[i].name
+
+   listOfNames.append(nameOption)
+    }
+    console.log(listOfNames)
+};
+
 // fetch for every pokeman
 
-// const pokemonDetail = (data) => {
-//     pokemonId = pokemonTeamImg.alt
-//     pokemonTeamImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
-//     pokemonDetailImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-//     pokemonName.textContent = data.name;
-// };
-
-const pokemonImages = (pokemon) => {
-  // let pokemonId = pokemon index value + 1
-  let pokemonThumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-  let pokemonMainImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
+const pokemonDetail = (pokemon) => {
+   
+    
+    pokemonDetailImage.src = pokemon.img;
+    pokemonDetailName.textContent = pokemon.name;
 };
+newpokemonForm.addEventListener("submit",(event)=>{
+  event.preventDefault()
+  newPoke= {}
+  newPoke.name = event.target[0].value
+
+  console.log(newPoke)
+  
+    // fetch(url)
+    // .then((response) => response.json())
+    // .then((data) => {
+    //   for (let pokemon of data){
+    //       if(event.target[0].value==pokemon.name){
+    //         console.log(pokemon.sprite)
+    //         console.log(newPoke)
+    //         newPoke.sprite = pokemon.sprite
+    //         renderTeam([newPoke])
+    //       }
+    //       }
+    //     })
+
+    for (let pokemon of charactersArray){
+          if(event.target[0].value==pokemon.name){
+            console.log(pokemon.sprite)
+            console.log(newPoke)
+            newPoke.sprite = pokemon.sprite
+            newPoke.img=pokemon.img
+          }
+        }
+      renderTeam([newPoke])
+    })
+                  
+              
+  //             });
+  // results=[newPoke,...results]
+  // console.log(results)
+ //console.log(newPoke)
+ //setTimeout(function(){renderTeam([newPoke])},1000) 
+ //renderTeam([newPoke])
+
+
+// const pokemonImages = (pokemon) => {
+//   // let pokemonId = pokemon index value + 1
+//   let pokemonThumbnail = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+//   let pokemonMainImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`;
+// };
 // let listOfNames = document.getElementById("mylist")
 // const renderList = (pokemon) => {
 //     console.log(pokemon.length)
