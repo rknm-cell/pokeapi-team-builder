@@ -3,6 +3,7 @@
   font-family: "Pokemon Solid", sans-serif;
   box-sizing: border-box;
   letter-spacing: 2px;
+  border-radius: 15px;
 }
 html {
   height: 100%;

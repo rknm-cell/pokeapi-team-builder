@@ -19,12 +19,14 @@ const newImage = document.getElementById("new-image");
 const newSpecies = document.getElementById("new-species");
 const newComment = document.getElementById("new-comment");
 let charactersArray;
-
+let arrayLength
 
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
+    console.log(data.length);
+    arrayLength = data.length;
     let newArray = data.splice(0, 6);
     charactersArray = data;
     renderTeam(newArray);
@@ -97,6 +99,8 @@ const renderTeam = (pokemons) => {
     });
   });
 };
+
+
 
 let listOfNames = document.getElementById("mylist");
 const renderList = (pokemon) => {
